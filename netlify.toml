@@ -1,0 +1,15 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Como esto es un SPA (React Router por estado, no por URL real, pero
+# si en el futuro agregas react-router esto es indispensable), cualquier
+# ruta que no sea un archivo real debe servir index.html para que React
+# pueda tomar el control en el cliente.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

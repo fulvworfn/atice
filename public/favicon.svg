@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34 34">
+  <rect width="34" height="34" rx="10" fill="#E07A5C"/>
+  <rect width="34" height="34" rx="10" fill="url(#g)"/>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="34" y2="34" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E07A5C"/>
+      <stop offset="1" stop-color="#7A0C0C"/>
+    </linearGradient>
+  </defs>
+  <text x="17" y="22" font-family="Georgia, serif" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">CC</text>
+</svg>

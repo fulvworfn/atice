@@ -1,0 +1,27 @@
+# dependencias
+node_modules
+
+# build
+dist
+dist-ssr
+
+# variables de entorno (NUNCA subir .env con claves reales)
+.env
+.env.local
+.env.*.local
+
+# editores / sistema
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
