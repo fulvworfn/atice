@@ -2,6 +2,9 @@ import { supabase } from "./supabaseClient";
 import type { Product, ProductFormData, Review } from "../types";
 import type { MediaItemRow } from "../types/database";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type AnyRow = Record<string, any>;
+
 /**
  * Capa de acceso a datos para productos y reseñas.
  * Reemplaza por completo a fetchProducts()/saveProducts() de JSONBin.
@@ -15,18 +18,7 @@ import type { MediaItemRow } from "../types/database";
  * Supabase le otorga.
  */
 
-function mapRowToProduct(row: {
-  id: number;
-  owner_id: string;
-  name: string;
-  price: number | null;
-  description: string | null;
-  contact: string | null;
-  contact_type: "email" | "phone" | null;
-  media: MediaItemRow[];
-  created_at: string;
-  reviews?: Review[];
-}): Product {
+function mapRowToProduct(row: AnyRow): Product {
   return {
     id: row.id,
     ownerId: row.owner_id,
@@ -48,7 +40,7 @@ export async function fetchProducts(): Promise<Product[]> {
     .order("created_at", { ascending: false });
 
   if (error) throw new Error(error.message);
-  return (data ?? []).map(mapRowToProduct);
+  return ((data ?? []) as AnyRow[]).map(mapRowToProduct);
 }
 
 export async function createProduct(form: ProductFormData, ownerId: string): Promise<Product> {
@@ -67,7 +59,7 @@ export async function createProduct(form: ProductFormData, ownerId: string): Pro
     .single();
 
   if (error) throw new Error(error.message);
-  return mapRowToProduct({ ...data, reviews: [] });
+  return mapRowToProduct({ ...(data as AnyRow), reviews: [] });
 }
 
 export async function updateProduct(id: number, form: ProductFormData): Promise<Product> {
@@ -86,7 +78,7 @@ export async function updateProduct(id: number, form: ProductFormData): Promise<
     .single();
 
   if (error) throw new Error(error.message);
-  return mapRowToProduct({ ...data, reviews: [] });
+  return mapRowToProduct({ ...(data as AnyRow), reviews: [] });
 }
 
 export async function deleteProduct(id: number): Promise<void> {
@@ -110,12 +102,13 @@ export async function addReview(
     .single();
 
   if (error) throw new Error(error.message);
+  const row = data as AnyRow;
   return {
-    id: data.id,
-    author: data.author,
-    rating: data.rating,
-    comment: data.comment,
-    date: data.created_at,
+    id: row.id,
+    author: row.author,
+    rating: row.rating,
+    comment: row.comment,
+    date: row.created_at,
   };
 }
 
