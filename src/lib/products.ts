@@ -1,6 +1,5 @@
 import { supabase } from "./supabaseClient";
 import type { Product, ProductFormData, Review } from "../types";
-import type { MediaItemRow } from "../types/database";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type AnyRow = Record<string, any>;
