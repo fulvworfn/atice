@@ -53,7 +53,7 @@ export async function createProduct(form: ProductFormData, ownerId: string): Pro
       contact: form.contact.trim(),
       contact_type: form.contactType,
       media: form.media.map((m) => ({ url: m.url, type: m.type })),
-    })
+    } as any)
     .select()
     .single();
 
@@ -71,7 +71,7 @@ export async function updateProduct(id: number, form: ProductFormData): Promise<
       contact: form.contact.trim(),
       contact_type: form.contactType,
       media: form.media.map((m) => ({ url: m.url, type: m.type })),
-    })
+    } as any)
     .eq("id", id)
     .select()
     .single();
@@ -96,7 +96,7 @@ export async function addReview(
       author: review.author.trim(),
       rating: review.rating,
       comment: review.comment.trim(),
-    })
+    } as any)
     .select()
     .single();
 
@@ -115,3 +115,5 @@ export async function deleteReview(reviewId: number): Promise<void> {
   const { error } = await supabase.from("reviews").delete().eq("id", reviewId);
   if (error) throw new Error(error.message);
 }
+
+
