@@ -1,6 +1,5 @@
 import { supabase } from "./supabaseClient";
 import type { Product, ProductFormData, Review } from "../types";
-import type { MediaItemRow } from "../types/database";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type AnyRow = Record<string, any>;
@@ -54,7 +53,7 @@ export async function createProduct(form: ProductFormData, ownerId: string): Pro
       contact: form.contact.trim(),
       contact_type: form.contactType,
       media: form.media.map((m) => ({ url: m.url, type: m.type })),
-    })
+    } as any)
     .select()
     .single();
 
@@ -72,7 +71,7 @@ export async function updateProduct(id: number, form: ProductFormData): Promise<
       contact: form.contact.trim(),
       contact_type: form.contactType,
       media: form.media.map((m) => ({ url: m.url, type: m.type })),
-    })
+    } as any)
     .eq("id", id)
     .select()
     .single();
@@ -97,7 +96,7 @@ export async function addReview(
       author: review.author.trim(),
       rating: review.rating,
       comment: review.comment.trim(),
-    })
+    } as any)
     .select()
     .single();
 
