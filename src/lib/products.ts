@@ -2,20 +2,7 @@ import { supabase } from "./supabaseClient";
 import type { Product, ProductFormData, Review } from "../types";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-
-
-/**
- * Capa de acceso a datos para productos y reseñas.
- * Reemplaza por completo a fetchProducts()/saveProducts() de JSONBin.
- *
- * Diferencia clave de seguridad: antes, saveProducts() reescribía
- * TODO el bin con una sola PUT request usando una API key maestra.
- * Ahora cada operación (crear, editar, borrar) es una llamada
- * independiente y específica, autenticada con la sesión del usuario,
- * y el servidor de Postgres decide si se permite o no según las
- * políticas RLS — el cliente nunca tiene más permisos de los que
- * Supabase le otorga.
- */
+type AnyRow = Record<string, any>;
 
 function mapRowToProduct(row: AnyRow): Product {
   return {
@@ -115,5 +102,3 @@ export async function deleteReview(reviewId: number): Promise<void> {
   const { error } = await supabase.from("reviews").delete().eq("id", reviewId);
   if (error) throw new Error(error.message);
 }
-
-
