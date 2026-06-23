@@ -2,7 +2,7 @@ import { supabase } from "./supabaseClient";
 import type { Product, ProductFormData, Review } from "../types";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-type AnyRow = Record<string, any>;
+
 
 /**
  * Capa de acceso a datos para productos y reseñas.
