@@ -2,12 +2,12 @@ import { STORE_NAME } from "../lib/utils";
 
 const CARDS = [
   {
-    tag: "¿Qué es esto?",
-    txt: "Este sitio es un proyecto personal donde publico artículos propios que están en venta. Cosas que ya no uso y que pueden servir a alguien más.",
+    tag: "¿Quien sos momo?",
+    txt: "il conto porfavore luigi",
   },
   {
-    tag: "¿Cómo comprar?",
-    txt: "Revisa los productos en el catálogo y contáctame directamente por Instagram, email o teléfono. Coordinamos todo por ahí.",
+    tag: "¿LASD9 <3?",
+    txt: "NO DAVO LAS DE 9 NO VIOLIN.  No chicos, no me gustan las de 9 esto significa Luis Alberto Suarez Dias 9. A mi no me gustan las de 9 ",
   },
 ];
 
