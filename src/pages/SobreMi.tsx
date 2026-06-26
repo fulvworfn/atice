@@ -16,10 +16,10 @@ export function SobreMi() {
     <div style={{ maxWidth: 640, margin: "0 auto", padding: "64px 28px 88px" }}>
       <div className="hero-label">sobre mí</div>
       <h2 style={{ fontFamily: "'Bradley Hand ITC','Bradley Hand',cursive", fontSize: 38, fontWeight: 700, color: "var(--text)", marginBottom: 10, lineHeight: 1.15, textShadow: "0 2px 24px rgba(224,122,92,.18)" }}>
-        Hola, soy Cristóbal
+        Hola, soy un fantasma 
       </h2>
       <p style={{ fontSize: 14, color: "var(--text-muted)", fontFamily: "'Lora',serif", marginBottom: 10, lineHeight: 1.7, fontStyle: "italic" }}>
-        creador de {STORE_NAME}
+        repositorios en {STORE_NAME}
       </p>
       <div style={{ height: 2, width: 48, background: "linear-gradient(90deg,var(--accent),var(--accent2))", borderRadius: 2, marginBottom: 32 }} />
 
@@ -35,7 +35,7 @@ export function SobreMi() {
             📦
           </span>
           <p style={{ fontSize: 13, color: "var(--text-dim)", fontFamily: "'DM Mono',monospace", lineHeight: 1.75 }}>
-            El sitio puede ir cambiando con el tiempo — esto es solo el comienzo.
+            piensa fuera de la caja, piensa como el carton de que hace la caja.
           </p>
         </div>
       </div>
